@@ -1,0 +1,14 @@
+name: server
+description: A gRPC server for my_stonks app.
+version: 1.0.0
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  grpc: ^5.0.0
+  protobuf: ^5.0.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6
