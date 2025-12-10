@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+message Stock {
+  string name = 1;
+  double current_price = 2;
+  double initial_price = 3;
+}
+
+message ETF {
+  string name = 1;
+  double current_price = 2;
+  double initial_price = 3;
+}
+
+message Asset {
+  oneof asset_type {
+    Stock stock = 1;
+    ETF etf = 2;
+  }
+}
+
+message Empty {}
+
+message AssetListUpdate {
+  repeated Asset assets = 1;
+  bool success = 2;
+  string message = 3;
+}
+
+service AssetsService {
+  rpc StreamAssets(Empty) returns (stream AssetListUpdate);
+}

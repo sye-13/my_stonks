@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:grpc/grpc.dart';
-import 'package:server/server.dart' as server;
+import 'package:server/server.dart';
 
 Future<void> main(List<String> arguments) async {
   final server = Server.create(
-    services: [], // TODO: add services.
+    services: [AssetService()],
     codecRegistry: CodecRegistry(codecs: const [GzipCodec(), IdentityCodec()]),
   );
   try {
