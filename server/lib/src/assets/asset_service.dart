@@ -7,14 +7,28 @@ import 'package:server/src/assets/generated/asset.pbgrpc.dart';
 class AssetService extends AssetsServiceBase {
   @override
   Stream<AssetListUpdate> streamAssets(ServiceCall call, Empty request) async* {
-    final data = assets;
+    final random = Random();
+
     try {
       while (true) {
-        await Future.delayed(Duration(seconds: Random().nextInt(5) + 1));
-        yield AssetListUpdate()
-          ..assets.addAll(data)
-          ..success = true
-          ..message = ''; // TODO: update to simulate realtime updates.
+        await Future.delayed(const Duration(seconds: 5));
+        if (call.isCanceled) {
+          print('Client cancelled: ending stream');
+          break;
+        }
+        for (var asset in assets) {
+          if (asset.hasStock()) {
+            asset.stock.currentPrice += (random.nextDouble() * 2 - 1);
+          } else {
+            asset.etf.currentPrice += (random.nextDouble() * 2 - 1);
+          }
+        }
+
+        yield AssetListUpdate(
+            assets: assets,
+            success: true,
+            message: "Asset prices updated"
+        );
       }
     } catch (e) {
       print('Stream error: $e');

@@ -19,31 +19,35 @@ import 'dart:typed_data' as $typed_data;
 const Stock$json = {
   '1': 'Stock',
   '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'current_price', '3': 2, '4': 1, '5': 1, '10': 'currentPrice'},
-    {'1': 'initial_price', '3': 3, '4': 1, '5': 1, '10': 'initialPrice'},
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'current_price', '3': 3, '4': 1, '5': 1, '10': 'currentPrice'},
+    {'1': 'initial_price', '3': 4, '4': 1, '5': 1, '10': 'initialPrice'},
   ],
 };
 
 /// Descriptor for `Stock`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List stockDescriptor = $convert.base64Decode(
-    'CgVTdG9jaxISCgRuYW1lGAEgASgJUgRuYW1lEiMKDWN1cnJlbnRfcHJpY2UYAiABKAFSDGN1cn'
-    'JlbnRQcmljZRIjCg1pbml0aWFsX3ByaWNlGAMgASgBUgxpbml0aWFsUHJpY2U=');
+    'CgVTdG9jaxIOCgJpZBgBIAEoCVICaWQSEgoEbmFtZRgCIAEoCVIEbmFtZRIjCg1jdXJyZW50X3'
+    'ByaWNlGAMgASgBUgxjdXJyZW50UHJpY2USIwoNaW5pdGlhbF9wcmljZRgEIAEoAVIMaW5pdGlh'
+    'bFByaWNl');
 
 @$core.Deprecated('Use eTFDescriptor instead')
 const ETF$json = {
   '1': 'ETF',
   '2': [
-    {'1': 'name', '3': 1, '4': 1, '5': 9, '10': 'name'},
-    {'1': 'current_price', '3': 2, '4': 1, '5': 1, '10': 'currentPrice'},
-    {'1': 'initial_price', '3': 3, '4': 1, '5': 1, '10': 'initialPrice'},
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    {'1': 'current_price', '3': 3, '4': 1, '5': 1, '10': 'currentPrice'},
+    {'1': 'initial_price', '3': 4, '4': 1, '5': 1, '10': 'initialPrice'},
   ],
 };
 
 /// Descriptor for `ETF`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List eTFDescriptor = $convert.base64Decode(
-    'CgNFVEYSEgoEbmFtZRgBIAEoCVIEbmFtZRIjCg1jdXJyZW50X3ByaWNlGAIgASgBUgxjdXJyZW'
-    '50UHJpY2USIwoNaW5pdGlhbF9wcmljZRgDIAEoAVIMaW5pdGlhbFByaWNl');
+    'CgNFVEYSDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIwoNY3VycmVudF9wcm'
+    'ljZRgDIAEoAVIMY3VycmVudFByaWNlEiMKDWluaXRpYWxfcHJpY2UYBCABKAFSDGluaXRpYWxQ'
+    'cmljZQ==');
 
 @$core.Deprecated('Use assetDescriptor instead')
 const Asset$json = {

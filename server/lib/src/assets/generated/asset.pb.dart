@@ -18,11 +18,13 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
 class Stock extends $pb.GeneratedMessage {
   factory Stock({
+    $core.String? id,
     $core.String? name,
     $core.double? currentPrice,
     $core.double? initialPrice,
   }) {
     final result = create();
+    if (id != null) result.id = id;
     if (name != null) result.name = name;
     if (currentPrice != null) result.currentPrice = currentPrice;
     if (initialPrice != null) result.initialPrice = initialPrice;
@@ -41,9 +43,10 @@ class Stock extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'Stock',
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'name')
-    ..aD(2, _omitFieldNames ? '' : 'currentPrice')
-    ..aD(3, _omitFieldNames ? '' : 'initialPrice')
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aD(3, _omitFieldNames ? '' : 'currentPrice')
+    ..aD(4, _omitFieldNames ? '' : 'initialPrice')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -65,40 +68,51 @@ class Stock extends $pb.GeneratedMessage {
   static Stock? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get name => $_getSZ(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set name($core.String value) => $_setString(0, value);
+  set id($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasName() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearName() => $_clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get currentPrice => $_getN(1);
+  $core.String get name => $_getSZ(1);
   @$pb.TagNumber(2)
-  set currentPrice($core.double value) => $_setDouble(1, value);
+  set name($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasCurrentPrice() => $_has(1);
+  $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCurrentPrice() => $_clearField(2);
+  void clearName() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get initialPrice => $_getN(2);
+  $core.double get currentPrice => $_getN(2);
   @$pb.TagNumber(3)
-  set initialPrice($core.double value) => $_setDouble(2, value);
+  set currentPrice($core.double value) => $_setDouble(2, value);
   @$pb.TagNumber(3)
-  $core.bool hasInitialPrice() => $_has(2);
+  $core.bool hasCurrentPrice() => $_has(2);
   @$pb.TagNumber(3)
-  void clearInitialPrice() => $_clearField(3);
+  void clearCurrentPrice() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get initialPrice => $_getN(3);
+  @$pb.TagNumber(4)
+  set initialPrice($core.double value) => $_setDouble(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasInitialPrice() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearInitialPrice() => $_clearField(4);
 }
 
 class ETF extends $pb.GeneratedMessage {
   factory ETF({
+    $core.String? id,
     $core.String? name,
     $core.double? currentPrice,
     $core.double? initialPrice,
   }) {
     final result = create();
+    if (id != null) result.id = id;
     if (name != null) result.name = name;
     if (currentPrice != null) result.currentPrice = currentPrice;
     if (initialPrice != null) result.initialPrice = initialPrice;
@@ -117,9 +131,10 @@ class ETF extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'ETF',
       createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'name')
-    ..aD(2, _omitFieldNames ? '' : 'currentPrice')
-    ..aD(3, _omitFieldNames ? '' : 'initialPrice')
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aD(3, _omitFieldNames ? '' : 'currentPrice')
+    ..aD(4, _omitFieldNames ? '' : 'initialPrice')
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
@@ -141,31 +156,40 @@ class ETF extends $pb.GeneratedMessage {
   static ETF? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get name => $_getSZ(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set name($core.String value) => $_setString(0, value);
+  set id($core.String value) => $_setString(0, value);
   @$pb.TagNumber(1)
-  $core.bool hasName() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearName() => $_clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.double get currentPrice => $_getN(1);
+  $core.String get name => $_getSZ(1);
   @$pb.TagNumber(2)
-  set currentPrice($core.double value) => $_setDouble(1, value);
+  set name($core.String value) => $_setString(1, value);
   @$pb.TagNumber(2)
-  $core.bool hasCurrentPrice() => $_has(1);
+  $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCurrentPrice() => $_clearField(2);
+  void clearName() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $core.double get initialPrice => $_getN(2);
+  $core.double get currentPrice => $_getN(2);
   @$pb.TagNumber(3)
-  set initialPrice($core.double value) => $_setDouble(2, value);
+  set currentPrice($core.double value) => $_setDouble(2, value);
   @$pb.TagNumber(3)
-  $core.bool hasInitialPrice() => $_has(2);
+  $core.bool hasCurrentPrice() => $_has(2);
   @$pb.TagNumber(3)
-  void clearInitialPrice() => $_clearField(3);
+  void clearCurrentPrice() => $_clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get initialPrice => $_getN(3);
+  @$pb.TagNumber(4)
+  set initialPrice($core.double value) => $_setDouble(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasInitialPrice() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearInitialPrice() => $_clearField(4);
 }
 
 enum Asset_AssetType { stock, etf, notSet }
