@@ -1,7 +1,11 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "assetsOverviewAppBarTitle": "Assets overview",
+    "@assetsOverviewAppBarTitle": {
+        "description": "Text shown in the AppBar of the Assets Overview Page"
+    },
+    "assetsOverviewEmptyText": "No assets available.",
+    "@assetsOverviewAppBarTitle": {
+        "description": "Text shown in the Body of the Assets Overview Page when no assets are available"
+   }
 }

@@ -1,6 +1,22 @@
+import 'package:grpc/grpc.dart';
 import 'package:my_stonks_flutter/app/app.dart';
 import 'package:my_stonks_flutter/bootstrap.dart';
 
 Future<void> main() async {
-  await bootstrap(() => const App());
+  final channel = ClientChannel(
+    '10.0.2.2',
+    port: 50051,
+    options: ChannelOptions(
+      credentials: ChannelCredentials.insecure(),
+      codecRegistry: CodecRegistry(
+        codecs: const [GzipCodec(), IdentityCodec()],
+      ),
+    ),
+  );
+  await bootstrap(
+    channel,
+    (assetsRepository) => App(
+      assetsRepository: assetsRepository,
+    ),
+  );
 }
