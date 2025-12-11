@@ -14,5 +14,11 @@
     },
     "assetsOverviewEmptyText": "No assets available.",
     "assetsOverviewETFText": "ETF",
-    "assetsOverviewStockText": "Stock"
+    "assetsOverviewStockText": "Stock",
+    "homeAppBarTitle": "My Stonks",
+    "homeThemeCancelText": "Cancel",
+    "homeThemeNeoankText": "Neobank (Blue/Clean)",
+    "homeThemeRetailBankText": "Retail Bank (Dark/Neon)",
+    "homeThemeTitle": "Theme",
+    "homeThemeTooltip": "Select theme"
 }

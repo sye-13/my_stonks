@@ -5,6 +5,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:grpc/grpc.dart';
 import 'package:my_stonks_flutter/assets_overview/assets_overview.dart';
+import 'package:my_stonks_flutter/theme/theme.dart';
 import 'package:server/server.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -25,7 +26,8 @@ class AppBlocObserver extends BlocObserver {
 
 Future<void> bootstrap(
   ClientChannel clientChannel,
-  FutureOr<Widget> Function(AssetsRepository) builder,
+  ThemeApi themeApi,
+  FutureOr<Widget> Function(AssetsRepository, ThemeRepository) builder,
 ) async {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
@@ -36,6 +38,7 @@ Future<void> bootstrap(
   final assetsRepository = AssetsRepository(
     assetsServiceClient: AssetsServiceClient(clientChannel),
   );
+  final themeRepository = ThemeRepository(api: themeApi);
 
-  runApp(await builder(assetsRepository));
+  runApp(await builder(assetsRepository, themeRepository));
 }

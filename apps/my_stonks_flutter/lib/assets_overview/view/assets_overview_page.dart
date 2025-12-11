@@ -27,9 +27,6 @@ class AssetsOverviewView extends StatelessWidget {
     final l10n = context.l10n;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.assetsOverviewAppBarTitle),
-      ),
       body: BlocBuilder<AssetsOverviewBloc, AssetsOverviewState>(
         builder: (context, state) {
           if (state.assets.isEmpty) {
@@ -48,21 +45,39 @@ class AssetsOverviewView extends StatelessWidget {
               );
             }
           }
-          return ListView.builder(
-            itemCount: state.assets.length,
-            itemBuilder: (context, index) {
-              final asset = state.assets.elementAt(index);
-              return AssetCard(
-                asset: asset,
-                onTap: (asset) async {
-                  await Navigator.of(context).push(
-                    AssetPerformancePage.route(
-                      assetWithPerformanceHistory: asset,
-                    ),
-                  );
-                },
-              );
-            },
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 24),
+              Row(
+                children: [
+                  const SizedBox(width: 16),
+                  Text(
+                    l10n.assetsOverviewAppBarTitle,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: state.assets.length,
+                  itemBuilder: (context, index) {
+                    final asset = state.assets.elementAt(index);
+                    return AssetCard(
+                      asset: asset,
+                      onTap: (asset) async {
+                        await Navigator.of(context).push(
+                          AssetPerformancePage.route(
+                            assetWithPerformanceHistory: asset,
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
           );
         },
       ),
