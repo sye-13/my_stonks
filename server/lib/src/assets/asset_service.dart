@@ -29,7 +29,10 @@ class AssetService extends AssetsServiceBase {
   }
 
   @override
-  Future<AssetListUpdate> updateAsset(ServiceCall call, Asset request) async {
+  Future<AssetListUpdate> updateAsset(
+    ServiceCall call,
+    AssetWithPerformanceHistory request,
+  ) async {
     try {
       await _assetRepository.updateAsset(request);
       return AssetListUpdate(

@@ -4,8 +4,15 @@
     "@assetsOverviewAppBarTitle": {
         "description": "Text shown in the AppBar of the Assets Overview Page"
     },
-    "assetsOverviewEmptyText": "No assets available.",
+    "assetsPerformanceAppBarTitle": "Performance history",
+    "assetsPerformanceEmptyText": "No performance history available for {name}",
+    "@assetsPerformanceAppBarTitle": {
+        "description": "Text shown in the AppBar of the Assets Performance Page"
+    },
     "@assetsOverviewAppBarTitle": {
         "description": "Text shown in the Body of the Assets Overview Page when no assets are available"
-   }
+    },
+    "assetsOverviewEmptyText": "No assets available.",
+    "assetsOverviewETFText": "ETF",
+    "assetsOverviewStockText": "Stock"
 }

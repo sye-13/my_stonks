@@ -7,7 +7,7 @@ class AssetsRepository {
 
   final AssetsServiceClient _assetsServiceClient;
 
-  Stream<List<Asset>> getAssets() => _assetsServiceClient
+  Stream<List<AssetWithPerformanceHistory>> getAssets() => _assetsServiceClient
       .streamAssets(Empty())
       .map((listUpdate) => listUpdate.assets);
 }

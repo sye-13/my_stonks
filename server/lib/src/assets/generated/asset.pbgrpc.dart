@@ -42,7 +42,7 @@ class AssetsServiceClient extends $grpc.Client {
   }
 
   $grpc.ResponseFuture<$0.AssetListUpdate> updateAsset(
-    $0.Asset request, {
+    $0.AssetWithPerformanceHistory request, {
     $grpc.CallOptions? options,
   }) {
     return $createUnaryCall(_$updateAsset, request, options: options);
@@ -55,10 +55,11 @@ class AssetsServiceClient extends $grpc.Client {
           '/AssetsService/StreamAssets',
           ($0.Empty value) => value.writeToBuffer(),
           $0.AssetListUpdate.fromBuffer);
-  static final _$updateAsset = $grpc.ClientMethod<$0.Asset, $0.AssetListUpdate>(
-      '/AssetsService/UpdateAsset',
-      ($0.Asset value) => value.writeToBuffer(),
-      $0.AssetListUpdate.fromBuffer);
+  static final _$updateAsset =
+      $grpc.ClientMethod<$0.AssetWithPerformanceHistory, $0.AssetListUpdate>(
+          '/AssetsService/UpdateAsset',
+          ($0.AssetWithPerformanceHistory value) => value.writeToBuffer(),
+          $0.AssetListUpdate.fromBuffer);
 }
 
 @$pb.GrpcServiceName('AssetsService')
@@ -73,13 +74,15 @@ abstract class AssetsServiceBase extends $grpc.Service {
         true,
         ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
         ($0.AssetListUpdate value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.Asset, $0.AssetListUpdate>(
-        'UpdateAsset',
-        updateAsset_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.Asset.fromBuffer(value),
-        ($0.AssetListUpdate value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.AssetWithPerformanceHistory, $0.AssetListUpdate>(
+            'UpdateAsset',
+            updateAsset_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.AssetWithPerformanceHistory.fromBuffer(value),
+            ($0.AssetListUpdate value) => value.writeToBuffer()));
   }
 
   $async.Stream<$0.AssetListUpdate> streamAssets_Pre(
@@ -90,11 +93,11 @@ abstract class AssetsServiceBase extends $grpc.Service {
   $async.Stream<$0.AssetListUpdate> streamAssets(
       $grpc.ServiceCall call, $0.Empty request);
 
-  $async.Future<$0.AssetListUpdate> updateAsset_Pre(
-      $grpc.ServiceCall $call, $async.Future<$0.Asset> $request) async {
+  $async.Future<$0.AssetListUpdate> updateAsset_Pre($grpc.ServiceCall $call,
+      $async.Future<$0.AssetWithPerformanceHistory> $request) async {
     return updateAsset($call, await $request);
   }
 
   $async.Future<$0.AssetListUpdate> updateAsset(
-      $grpc.ServiceCall call, $0.Asset request);
+      $grpc.ServiceCall call, $0.AssetWithPerformanceHistory request);
 }
