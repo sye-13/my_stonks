@@ -74,6 +74,42 @@ final $typed_data.Uint8List assetDescriptor = $convert.base64Decode(
     'CgVBc3NldBIeCgVzdG9jaxgBIAEoCzIGLlN0b2NrSABSBXN0b2NrEhgKA2V0ZhgCIAEoCzIELk'
     'VURkgAUgNldGZCDAoKYXNzZXRfdHlwZQ==');
 
+@$core.Deprecated('Use performanceHistoryDescriptor instead')
+const PerformanceHistory$json = {
+  '1': 'PerformanceHistory',
+  '2': [
+    {'1': 'timestamp', '3': 1, '4': 1, '5': 3, '10': 'timestamp'},
+    {'1': 'value', '3': 2, '4': 1, '5': 1, '10': 'value'},
+  ],
+};
+
+/// Descriptor for `PerformanceHistory`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List performanceHistoryDescriptor = $convert.base64Decode(
+    'ChJQZXJmb3JtYW5jZUhpc3RvcnkSHAoJdGltZXN0YW1wGAEgASgDUgl0aW1lc3RhbXASFAoFdm'
+    'FsdWUYAiABKAFSBXZhbHVl');
+
+@$core.Deprecated('Use assetWithPerformanceHistoryDescriptor instead')
+const AssetWithPerformanceHistory$json = {
+  '1': 'AssetWithPerformanceHistory',
+  '2': [
+    {'1': 'asset', '3': 1, '4': 1, '5': 11, '6': '.Asset', '10': 'asset'},
+    {
+      '1': 'history',
+      '3': 2,
+      '4': 3,
+      '5': 11,
+      '6': '.PerformanceHistory',
+      '10': 'history'
+    },
+  ],
+};
+
+/// Descriptor for `AssetWithPerformanceHistory`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List assetWithPerformanceHistoryDescriptor =
+    $convert.base64Decode(
+        'ChtBc3NldFdpdGhQZXJmb3JtYW5jZUhpc3RvcnkSHAoFYXNzZXQYASABKAsyBi5Bc3NldFIFYX'
+        'NzZXQSLQoHaGlzdG9yeRgCIAMoCzITLlBlcmZvcm1hbmNlSGlzdG9yeVIHaGlzdG9yeQ==');
+
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = {
   '1': 'Empty',
@@ -87,7 +123,14 @@ final $typed_data.Uint8List emptyDescriptor =
 const AssetListUpdate$json = {
   '1': 'AssetListUpdate',
   '2': [
-    {'1': 'assets', '3': 1, '4': 3, '5': 11, '6': '.Asset', '10': 'assets'},
+    {
+      '1': 'assets',
+      '3': 1,
+      '4': 3,
+      '5': 11,
+      '6': '.AssetWithPerformanceHistory',
+      '10': 'assets'
+    },
     {'1': 'success', '3': 2, '4': 1, '5': 8, '10': 'success'},
     {'1': 'message', '3': 3, '4': 1, '5': 9, '10': 'message'},
   ],
@@ -95,5 +138,6 @@ const AssetListUpdate$json = {
 
 /// Descriptor for `AssetListUpdate`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List assetListUpdateDescriptor = $convert.base64Decode(
-    'Cg9Bc3NldExpc3RVcGRhdGUSHgoGYXNzZXRzGAEgAygLMgYuQXNzZXRSBmFzc2V0cxIYCgdzdW'
-    'NjZXNzGAIgASgIUgdzdWNjZXNzEhgKB21lc3NhZ2UYAyABKAlSB21lc3NhZ2U=');
+    'Cg9Bc3NldExpc3RVcGRhdGUSNAoGYXNzZXRzGAEgAygLMhwuQXNzZXRXaXRoUGVyZm9ybWFuY2'
+    'VIaXN0b3J5UgZhc3NldHMSGAoHc3VjY2VzcxgCIAEoCFIHc3VjY2VzcxIYCgdtZXNzYWdlGAMg'
+    'ASgJUgdtZXNzYWdl');

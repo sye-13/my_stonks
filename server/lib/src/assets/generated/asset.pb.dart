@@ -12,6 +12,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
@@ -275,6 +276,136 @@ class Asset extends $pb.GeneratedMessage {
   ETF ensureEtf() => $_ensure(1);
 }
 
+class PerformanceHistory extends $pb.GeneratedMessage {
+  factory PerformanceHistory({
+    $fixnum.Int64? timestamp,
+    $core.double? value,
+  }) {
+    final result = create();
+    if (timestamp != null) result.timestamp = timestamp;
+    if (value != null) result.value = value;
+    return result;
+  }
+
+  PerformanceHistory._();
+
+  factory PerformanceHistory.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory PerformanceHistory.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'PerformanceHistory',
+      createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'timestamp')
+    ..aD(2, _omitFieldNames ? '' : 'value')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PerformanceHistory clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  PerformanceHistory copyWith(void Function(PerformanceHistory) updates) =>
+      super.copyWith((message) => updates(message as PerformanceHistory))
+          as PerformanceHistory;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PerformanceHistory create() => PerformanceHistory._();
+  @$core.override
+  PerformanceHistory createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static PerformanceHistory getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<PerformanceHistory>(create);
+  static PerformanceHistory? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get timestamp => $_getI64(0);
+  @$pb.TagNumber(1)
+  set timestamp($fixnum.Int64 value) => $_setInt64(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasTimestamp() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearTimestamp() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get value => $_getN(1);
+  @$pb.TagNumber(2)
+  set value($core.double value) => $_setDouble(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasValue() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearValue() => $_clearField(2);
+}
+
+class AssetWithPerformanceHistory extends $pb.GeneratedMessage {
+  factory AssetWithPerformanceHistory({
+    Asset? asset,
+    $core.Iterable<PerformanceHistory>? history,
+  }) {
+    final result = create();
+    if (asset != null) result.asset = asset;
+    if (history != null) result.history.addAll(history);
+    return result;
+  }
+
+  AssetWithPerformanceHistory._();
+
+  factory AssetWithPerformanceHistory.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory AssetWithPerformanceHistory.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'AssetWithPerformanceHistory',
+      createEmptyInstance: create)
+    ..aOM<Asset>(1, _omitFieldNames ? '' : 'asset', subBuilder: Asset.create)
+    ..pPM<PerformanceHistory>(2, _omitFieldNames ? '' : 'history',
+        subBuilder: PerformanceHistory.create)
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AssetWithPerformanceHistory clone() => deepCopy();
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  AssetWithPerformanceHistory copyWith(
+          void Function(AssetWithPerformanceHistory) updates) =>
+      super.copyWith(
+              (message) => updates(message as AssetWithPerformanceHistory))
+          as AssetWithPerformanceHistory;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AssetWithPerformanceHistory create() =>
+      AssetWithPerformanceHistory._();
+  @$core.override
+  AssetWithPerformanceHistory createEmptyInstance() => create();
+  @$core.pragma('dart2js:noInline')
+  static AssetWithPerformanceHistory getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<AssetWithPerformanceHistory>(create);
+  static AssetWithPerformanceHistory? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Asset get asset => $_getN(0);
+  @$pb.TagNumber(1)
+  set asset(Asset value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasAsset() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearAsset() => $_clearField(1);
+  @$pb.TagNumber(1)
+  Asset ensureAsset() => $_ensure(0);
+
+  @$pb.TagNumber(2)
+  $pb.PbList<PerformanceHistory> get history => $_getList(1);
+}
+
 class Empty extends $pb.GeneratedMessage {
   factory Empty() => create();
 
@@ -313,7 +444,7 @@ class Empty extends $pb.GeneratedMessage {
 
 class AssetListUpdate extends $pb.GeneratedMessage {
   factory AssetListUpdate({
-    $core.Iterable<Asset>? assets,
+    $core.Iterable<AssetWithPerformanceHistory>? assets,
     $core.bool? success,
     $core.String? message,
   }) {
@@ -336,7 +467,8 @@ class AssetListUpdate extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       _omitMessageNames ? '' : 'AssetListUpdate',
       createEmptyInstance: create)
-    ..pPM<Asset>(1, _omitFieldNames ? '' : 'assets', subBuilder: Asset.create)
+    ..pPM<AssetWithPerformanceHistory>(1, _omitFieldNames ? '' : 'assets',
+        subBuilder: AssetWithPerformanceHistory.create)
     ..aOB(2, _omitFieldNames ? '' : 'success')
     ..aOS(3, _omitFieldNames ? '' : 'message')
     ..hasRequiredFields = false;
@@ -361,7 +493,7 @@ class AssetListUpdate extends $pb.GeneratedMessage {
   static AssetListUpdate? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $pb.PbList<Asset> get assets => $_getList(0);
+  $pb.PbList<AssetWithPerformanceHistory> get assets => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.bool get success => $_getBF(1);

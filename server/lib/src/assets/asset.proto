@@ -21,15 +21,25 @@ message Asset {
   }
 }
 
+message PerformanceHistory {
+  int64 timestamp = 1; // Timestamp in milliseconds since epoch
+  double value = 2;
+}
+
+message AssetWithPerformanceHistory {
+  Asset asset = 1;
+  repeated PerformanceHistory history = 2;
+}
+
 message Empty {}
 
 message AssetListUpdate {
-  repeated Asset assets = 1;
+  repeated AssetWithPerformanceHistory assets = 1;
   bool success = 2;
   string message = 3;
 }
 
 service AssetsService {
   rpc StreamAssets(Empty) returns (stream AssetListUpdate);
-  rpc UpdateAsset(Asset) returns (AssetListUpdate);
+  rpc UpdateAsset(AssetWithPerformanceHistory) returns (AssetListUpdate);
 }

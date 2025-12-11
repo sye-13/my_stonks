@@ -9,11 +9,11 @@ final class AssetsOverviewState extends Equatable {
   });
 
   final AssetsOverviewStatus status;
-  final List<Asset> assets;
+  final List<AssetWithPerformanceHistory> assets;
 
   AssetsOverviewState copyWith({
     AssetsOverviewStatus Function()? status,
-    List<Asset> Function()? assets,
+    List<AssetWithPerformanceHistory> Function()? assets,
   }) {
     return AssetsOverviewState(
       status: status != null ? status() : this.status,

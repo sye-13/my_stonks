@@ -29,14 +29,20 @@ Future<void> main(List<String> arguments) async {
     while (true) {
       await Future.delayed(const Duration(seconds: 5));
       for (var asset in assets) {
-        if (asset.hasStock()) {
-          asset.stock.currentPrice = _generateRandomPrice(
-            asset.stock.currentPrice,
+        if (asset.asset.hasStock()) {
+          asset.asset.stock.currentPrice = _generateRandomPrice(
+            asset.asset.stock.currentPrice,
           );
-          print('[Update] Stock - ${asset.stock} - ${asset.stock.currentPrice}');
+          print(
+            '[Update] Stock - ${asset.asset.stock} - ${asset.asset.stock.currentPrice}',
+          );
         } else {
-          asset.etf.currentPrice = _generateRandomPrice(asset.etf.currentPrice);
-          print('[Update] ETF - ${asset.etf} - ${asset.etf.currentPrice}');
+          asset.asset.etf.currentPrice = _generateRandomPrice(
+            asset.asset.etf.currentPrice,
+          );
+          print(
+            '[Update] ETF - ${asset.asset.etf} - ${asset.asset.etf.currentPrice}',
+          );
         }
         try {
           await assetServiceClient.updateAsset(asset);

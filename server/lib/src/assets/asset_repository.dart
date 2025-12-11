@@ -5,20 +5,21 @@ import 'package:server/src/assets/data.dart';
 import 'generated/asset.pb.dart';
 
 class AssetRepository {
-  final StreamController<List<Asset>> _controller =
-      StreamController<List<Asset>>.broadcast();
+  final StreamController<List<AssetWithPerformanceHistory>> _controller =
+      StreamController<List<AssetWithPerformanceHistory>>.broadcast();
 
-  Stream<List<Asset>> get assetUpdates => _controller.stream;
+  Stream<List<AssetWithPerformanceHistory>> get assetUpdates =>
+      _controller.stream;
 
-  List<Asset> getAssets() {
+  List<AssetWithPerformanceHistory> getAssets() {
     return List.from(assets);
   }
 
-  Future<void> updateAsset(Asset asset) async {
+  Future<void> updateAsset(AssetWithPerformanceHistory asset) async {
     final index = assets.indexWhere(
       (a) =>
-          (a.hasStock() && a.stock.id == asset.stock.id) ||
-          (a.hasEtf() && a.etf.id == asset.etf.id),
+          (a.asset.hasStock() && a.asset.stock.id == asset.asset.stock.id) ||
+          (a.asset.hasEtf() && a.asset.etf.id == asset.asset.etf.id),
     );
 
     if (index != -1) {
