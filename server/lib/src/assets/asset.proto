@@ -31,4 +31,5 @@ message AssetListUpdate {
 
 service AssetsService {
   rpc StreamAssets(Empty) returns (stream AssetListUpdate);
+  rpc UpdateAsset(Asset) returns (AssetListUpdate);
 }
