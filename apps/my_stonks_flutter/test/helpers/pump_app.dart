@@ -6,6 +6,8 @@ import 'package:my_stonks_flutter/assets_overview/assets_overview.dart';
 import 'package:my_stonks_flutter/l10n/l10n.dart';
 import 'package:my_stonks_flutter/theme/theme.dart';
 
+import '../app/view/app_test.dart';
+
 class MockAssetsOverviewRepository extends Mock implements AssetsRepository {}
 
 class MockThemeRepository extends Mock implements ThemeRepository {}
@@ -15,14 +17,25 @@ extension PumpApp on WidgetTester {
     Widget widget, {
     AssetsRepository? assetsRepository,
     ThemeRepository? themeRepository,
+    ThemeCubit? themeCubit,
   }) {
     return pumpWidget(
-      RepositoryProvider.value(
-        value: assetsRepository ?? MockAssetsOverviewRepository(),
-        child: MaterialApp(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
-          home: widget,
+      MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider.value(
+            value: assetsRepository ?? MockAssetsOverviewRepository(),
+          ),
+          RepositoryProvider.value(
+            value: themeRepository ?? MockThemeRepository(),
+          ),
+        ],
+        child: BlocProvider(
+          create: (_) => themeCubit ?? MockThemeCubit(),
+          child: MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            home: widget,
+          ),
         ),
       ),
     );

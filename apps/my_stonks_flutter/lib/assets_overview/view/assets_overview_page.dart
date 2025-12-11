@@ -53,6 +53,7 @@ class AssetsOverviewView extends StatelessWidget {
                 children: [
                   const SizedBox(width: 16),
                   Text(
+                    key: const Key('text_overview_title'),
                     l10n.assetsOverviewAppBarTitle,
                     style: Theme.of(context).textTheme.titleLarge,
                   ),

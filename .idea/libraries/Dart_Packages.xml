@@ -334,6 +334,13 @@
             </list>
           </value>
         </entry>
+        <entry key="mockingjay">
+          <value>
+            <list>
+              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/mockingjay-2.1.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="mocktail">
           <value>
             <list>
@@ -715,6 +722,7 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/material_color_utilities-0.11.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/meta-1.17.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/mime-2.0.0/lib" />
+      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/mockingjay-2.1.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/mocktail-1.0.4/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/nested-1.0.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/node_preamble-2.0.2/lib" />
