@@ -122,6 +122,6 @@ Before you proceed, ensure you have [very_good_cli](https://cli.vgv.dev/) instal
 
 To run tests, navigate to the frontend directory and execute:
 ```
-cd apps/mys_stonks_flutter
+cd apps/my_stonks_flutter
 very_good test --coverage --test-randomize-ordering-seed random
 ```
