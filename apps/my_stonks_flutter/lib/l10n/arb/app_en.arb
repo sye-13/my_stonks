@@ -17,8 +17,8 @@
     "assetsOverviewStockText": "Stock",
     "homeAppBarTitle": "My Stonks",
     "homeThemeCancelText": "Cancel",
-    "homeThemeNeoankText": "Neobank (Blue/Clean)",
-    "homeThemeRetailBankText": "Retail Bank (Dark/Neon)",
+    "homeThemeNeoankText": "Neobank (Dark/Neon)",
+    "homeThemeRetailBankText": "Retail Bank (Blue/Clean)",
     "homeThemeTitle": "Theme",
     "homeThemeTooltip": "Select theme"
 }
