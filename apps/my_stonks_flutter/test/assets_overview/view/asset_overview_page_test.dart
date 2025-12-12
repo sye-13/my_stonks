@@ -8,8 +8,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:my_stonks_flutter/assets_overview/assets_overview.dart';
 import 'package:server/server.dart';
 
-import '../../helpers/l10n.dart';
-import '../../helpers/pump_app.dart';
+import '../../helpers/helpers.dart';
 
 class MockAssetsRepository extends Mock implements AssetsRepository {}
 
