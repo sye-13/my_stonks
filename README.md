@@ -112,7 +112,6 @@ The project is structured into two main directories:
 
 - **[very_good_cli](https://cli.vgv.dev/) and [flutter_bloc](https://bloclibrary.dev/)**: Clean, readable code structured for production.
 - **[grpc](https://pub.dev/packages/grpc) and [protobuf](https://pub.dev/packages/protobuf)**: gRPC and protos used to define data models.
-- Theme switch implemented to toggle between "Retail Bank" (Blue/Clean) and "Neobank" (Dark/Neon) themes.
 
 ---
 
